@@ -1,0 +1,4690 @@
+<nav
+  style="background-color: #003366"
+  class="navbar navbar-expand-md navbar-dark fixed-top"
+>
+  <a class="navbar-brand" [routerLink]="['/principal']">UPDS</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="mr-2" style="font-size: 0.9rem">menu</span>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/principal']"
+          >Inicio <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/resultados']">Mis resultados</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/contactos']">Contacto</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <label class="text-white"
+        >{{ usuario?.nombres }} {{ usuario?.apellidos }} &nbsp;&nbsp;</label
+      >
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        data-toggle="modal"
+        data-target="#ModalSalir"
+        type="button"
+      >
+        Salir
+      </button>
+    </form>
+  </div>
+</nav>
+
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 py-3">
+          <img src="./assets/images/poaplogo.png" class="imgLogo1" />
+          <img src="./assets/images/burgos.png" class="imgLogo2" />
+          <br />
+          <br />
+          <p class="textoInicio">
+            <b
+              >Elegir una carrera profesional y estar seguro de lo que se quiere
+              estudiar, no es una tarea fácil, por esto, la Universidad Privada
+              Domingo Savio junto a la Universidad de Burgos de España, diseñó
+              el POAP, un programa que te permite realizar el Test Digital de
+              Orientación Vocacional de manera gratuita.<br />Descubrirás
+              mediante el llenado del test cuáles son tus intereses y aptitudes
+              principales, obtendrás tus resultados y podrás conocer cuál puede
+              ser tu futura carrera. ¡Con todo ello estarás mejor preparado para
+              tomar tu decisión!</b
+            >
+          </p>
+          <p>
+            <a
+              class="btn btn-secondary btn-lg"
+              href="#"
+              role="button"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              >Ver Instrucciones</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-12">
+        <img
+          src="./assets/images/lapiz.png"
+          alt="..."
+          class="animate__animated animate__fadeInUp"
+          style="width: 70%; margin-bottom: 30px"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p style="font-size: 13"><strong>1. SOÑANDO UN FUTURO</strong></p>
+        <p style="font-size: 10">Descubre tu sueño a nivel profesional</p>
+        <div *ngIf="test1.realizado; else loggedOut1">
+          <img src="./assets/images/aprovetest.png" style="width: 30%" />
+        </div>
+        <ng-template #loggedOut1>
+          <button
+            class="btn btn-secondary mb-3"
+            [disabled]="!test1.activo"
+            data-toggle="modal"
+            data-target="#ModalTest1"
+            href="#"
+            role="button"
+          >
+            Iniciar
+          </button>
+        </ng-template>
+      </div>
+      <div class="col-md-3">
+        <p style="font-size: 13"><strong>2. TEST DE INTERESES</strong></p>
+        <p style="font-size: 10">Identifica tus principales áreas de interés</p>
+        <div *ngIf="test2.realizado; else loggedOut2">
+          <img src="./assets/images/aprovetest.png" style="width: 30%" />
+        </div>
+        <ng-template #loggedOut2>
+          <button
+            class="btn btn-secondary mb-3"
+            [disabled]="!test2.activo"
+            data-toggle="modal"
+            data-target="#ModalTest2"
+            href="#"
+            role="button"
+          >
+            Iniciar
+          </button>
+        </ng-template>
+      </div>
+      <div class="col-md-3">
+        <p style="font-size: 13"><strong>3. INVENTARIO DE APTITUDES</strong></p>
+        <p style="font-size: 10">Descubre tus principales habilidades</p>
+        <div *ngIf="test3.realizado; else loggedOut3">
+          <img src="./assets/images/aprovetest.png" style="width: 30%" />
+        </div>
+        <ng-template #loggedOut3>
+          <button
+            class="btn btn-secondary mb-3"
+            [disabled]="!test3.activo"
+            data-toggle="modal"
+            data-target="#ModalTest3"
+            href="#"
+            role="button"
+          >
+            Iniciar
+          </button>
+        </ng-template>
+      </div>
+      <div class="col-md-3">
+        <p style="font-size: 13"><strong>4. CONOCIÉNDOTE</strong></p>
+        <p style="font-size: 10">Identifica tus proyecciones laborales</p>
+        <div *ngIf="test4.realizado; else loggedOut4">
+          <img src="./assets/images/aprovetest.png" style="width: 30%" />
+        </div>
+        <ng-template #loggedOut4>
+          <button
+            class="btn btn-secondary mb-3"
+            [disabled]="!test4.activo"
+            data-toggle="modal"
+            data-target="#ModalTest4"
+            href="#"
+            role="button"
+          >
+            Iniciar
+          </button>
+        </ng-template>
+      </div>
+    </div>
+
+    <hr />
+  </div>
+  <!-- /container -->
+</main>
+
+<footer class="container">
+  <p>&copy; UPDS 2020</p>
+</footer>
+
+<!-- Modal Instrucciones -->
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Instrucciones</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-5 d-flex BloqueIsquierdo posicion">
+            <img
+              src="./assets/images/instrucciones.jpg"
+              alt="..."
+              class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+            />
+          </div>
+          <div class="col-sm-7 BloqueDerecho">
+            <div
+              class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft"
+            >
+              <!-- <p class="text-justify">
+                Para completar este Test debes ubicarte en un lugar cómodo y tranquilo, evitando interrupciones.
+                Serán 4 pruebas que completarás gradualmente. Al concluir cada una, debes confirmar que deseas guardar los datos. <br/>
+                Al completar una prueba, se te mostrará en el Menú Principal tu avance en el llenado del Test. <br/>
+                En caso de que tengas alguna dificultad, y te ves obligado a detener el llenado del Test, no te preocupes, que toda la información completada hasta entonces se guardará automáticamente.<br/>
+                Podrás reingresar y se te dirigirá automáticamente a la sección donde te quedaste anteriormente.
+                Para retroceder o avanzar en las preguntas de cada prueba, utiliza las opciones “Atrás” y “Siguiente” ubicadas en la parte inferior de cada sección.<br/>
+                       Ante dudas o problemas puedes utilizar el botón de “Ayuda”
+                       <a href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda" class="imgWP" target="_blank">          
+                        <img src="/assets/images/wp.png" style="width: 30px;" />
+                      </a>  
+                       y te orientaremos.
+                
+              </p>      -->
+              <p class="text-justify">
+                Para completar este test debes ubicarte en un lugar cómodo y
+                tranquilo, evitando interrupciones.
+              </p>
+              <p class="text-justify">
+                Serán 4 pruebas que completarás gradualmente. Al concluir cada
+                una, debes confirmar que deseas guardar los datos.
+              </p>
+              <p class="text-justify">
+                Al completar una prueba se te mostrará en el Menú Principal tu
+                avance en el llenado del Test.
+                <i
+                  class="fa fa-check-circle text-success"
+                  aria-hidden="true"
+                ></i>
+              </p>
+              <p class="text-justify">
+                En caso de que tengas alguna dificultad, y te ves obligado a
+                detener el llenado del Test, no te preocupes, que toda la
+                información completada hasta entonces se guardará
+                automáticamente. Podrás reingresar y se te dirigirá
+                automáticamente a la sección donde te quedaste anteriormente.
+              </p>
+              <!-- <p class="text-justify">
+                Podrás reingresar y se te dirigirá automáticamente a la sección donde te quedaste anteriormente.
+              </p>    -->
+              <p class="text-justify">
+                Para retroceder o avanzar en las preguntas de cada prueba,
+                utiliza las opciones “Atrás” y “Siguiente” ubicadas en la parte
+                inferior de cada sección.
+              </p>
+              <span
+                >Si tienes dificultad en el llenado utiliza el botón de Ayuda
+                <img src="./assets/images/wp.png" style="width: 40px" /> y te
+                asesoraremos.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Test1 -->
+<div
+  class="modal fade"
+  id="ModalTest1"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          1. TEST SOÑANDO UN FUTURO
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left bgmodal" style="height: auto">
+        <!--Consigna Test 1-->
+        <div
+          *ngIf="test1.pregunta == 0"
+          class="animate__animated animate__fadeIn"
+        >
+          <div>
+            <p>
+              CONSIGNA: En la primera parte de esta prueba escucharás un audio
+              que te ayudará a soñar una visión de futuro. Presta atención y
+              realiza lo que se te indica en el mismo.
+              <!-- Una vez finalizado, responderás las preguntas que te plantean. -->
+            </p>
+          </div>
+          <audio controls style="width: 100%">
+            <source src="./assets/images/relajacion.mp3" type="audio/mpeg" />
+            Tu navegador no reproduce audios
+          </audio>
+
+          <div class="form-group mt-sm-3">
+            <label>{{ test1.preguntas[test1.pregunta].texto }} </label>
+          </div>
+        </div>
+        <!--Pregunta 1 Test 1-->
+        <div
+          *ngIf="test1.pregunta == 1"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div class="container tamaño1">
+              <div class="row p-0">
+                <div class="col-sm-5 d-flex BloqueIsquierdo posicion">
+                  <img
+                    src="./assets/images/t1.jpg"
+                    alt="..."
+                    class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                  />
+                  <img
+                    src="./assets/images/body4.gif"
+                    alt="..."
+                    class="animate__animated animate__fadeInUp gifPos margeGif4"
+                  />
+                </div>
+                <div class="col-sm-7 BloqueDerecho">
+                  <div
+                    class="container bg-info rounded animate__animated animate__bounce Sombra"
+                  >
+                    <label
+                      class="text-light font-weight-bold"
+                      style="font-size: larger"
+                      >{{ test1.preguntas[test1.pregunta].texto }}</label
+                    >
+                  </div>
+                  <div
+                    class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                  >
+                    <textarea
+                      name="respuesta"
+                      [(ngModel)]="test1.preguntas[test1.pregunta].respuesta"
+                      class="form-control"
+                      rows="3"
+                      placeholder="Escribe tu respuesta aquí"
+                      required="true"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 2 Test 1-->
+        <div
+          *ngIf="test1.pregunta == 2"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <!-- Modelo Style -->
+            <div class="container">
+              <div class="row p-0">
+                <div class="col-sm-5 BloqueIsquierdo posicion">
+                  <img
+                    src="./assets/images/t2.jpg"
+                    alt="..."
+                    class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                  />
+                  <img
+                    src="./assets/images/body2.gif"
+                    alt="..."
+                    class="animate__animated animate__fadeInUp gifPos margeGif2"
+                  />
+                </div>
+                <div class="col-sm-7 BloqueDerecho">
+                  <div
+                    class="container bg-info rounded animate__animated animate__bounce Sombra"
+                  >
+                    <label
+                      class="text-light font-weight-bold"
+                      style="font-size: larger"
+                      >{{ test1.preguntas[test1.pregunta].texto }}</label
+                    >
+                  </div>
+                  <!-- Respuestas -->
+                  <div
+                    class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                  >
+                    <!-- Opción Respuesta-->
+                    <div class="form-group">
+                      <label class="px-3">Ciudad</label>
+                      <select
+                        class="form-control"
+                        name="respuesta1"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].respuesta1"
+                      >
+                        <option value="Beni">Beni</option>
+                        <option value="Chuquisca">Chuquisaca</option>
+                        <option value="Chuquisca">Cochabamba</option>
+                        <option value="La Paz">La Paz</option>
+                        <option value="Oruro">Oruro</option>
+                        <option value="Pando">Pando</option>
+                        <option value="Potosi">Potosí</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Tarija">Tarija</option>
+                        <option value="Otro Pais">Otro</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          test1.preguntas[test1.pregunta].respuesta1 ==
+                          'Otro Pais'
+                        "
+                      >
+                        <small class="text-muted"
+                          >Seleccionaste otra opción</small
+                        >
+                        <input
+                          type="text"
+                          name="otro1"
+                          [(ngModel)]="test1.preguntas[test1.pregunta].otro1"
+                          class="form-control"
+                          placeholder="Escribe aquí"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                  >
+                    <!-- Opción Respuesta-->
+                    <div class="form-group">
+                      <label class="px-3">Espacio Físico</label>
+                      <select
+                        class="form-control"
+                        name="respuesta2"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].respuesta2"
+                      >
+                        <option value="Mi Casa">Mi casa</option>
+                        <option value="En la universidad">
+                          En la universidad
+                        </option>
+                        <option value="En un instituto técnico">
+                          En un instituto técnico
+                        </option>
+                        <option value="En un instituto técnico">
+                          En el trabajo
+                        </option>
+                        <option value="Otro">Otro</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          test1.preguntas[test1.pregunta].respuesta2 == 'Otro'
+                        "
+                      >
+                        <small class="text-muted">Seleccionaste otro </small>
+                        <input
+                          type="text"
+                          name="otro2"
+                          [(ngModel)]="test1.preguntas[test1.pregunta].otro2"
+                          class="form-control"
+                          placeholder="Escribe aquí"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Pregunta 3 Test 1-->
+        <div
+          *ngIf="test1.pregunta == 3"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="container tamaño1">
+            <div class="row p-0">
+              <div class="col-sm-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/t3.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+                <img
+                  src="./assets/images/body4.gif"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp gifPos margeGif4"
+                />
+              </div>
+              <div class="col-sm-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >{{ test1.preguntas[test1.pregunta].texto }}</label
+                  >
+                </div>
+                <!-- Respuestas -->
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <label class="px-3">Selecciona una opción</label>
+                  <select
+                    class="form-control"
+                    name="respuesta"
+                    [(ngModel)]="test1.preguntas[test1.pregunta].respuesta"
+                  >
+                    <option value="Estudio">Estudio</option>
+                    <option value="Estudio y trabajo">Estudio y trabajo</option>
+                    <option value="Trabajo">Trabajo</option>
+                    <option value="No hago nada de lo anterior">
+                      No hago nada de lo anterior
+                    </option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                  <div
+                    *ngIf="test1.preguntas[test1.pregunta].respuesta == 'Otro'"
+                  >
+                    <small class="text-muted"
+                      >Seleccionaste la opción otro</small
+                    >
+                    <input
+                      type="text"
+                      name="otro"
+                      [(ngModel)]="test1.preguntas[test1.pregunta].otro"
+                      class="form-control"
+                      placeholder="Escribe aquí"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Pregunta 4 test 1-->
+        <div
+          *ngIf="test1.pregunta == 4"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="container">
+            <div class="row p-0">
+              <div class="col-sm-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/t6.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+                <img
+                  src="./assets/images/body5.gif"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp gifPos margeGif2"
+                />
+              </div>
+              <div class="col-sm-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <p class="text-light" style="font-size: larger">
+                    <b>{{ test1.preguntas[test1.pregunta].texto }}</b>
+                    <!-- (indica una o las carreras visualizadas si estas indeciso entre varias) -->
+                  </p>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="tipo_respuesta_5"
+                      #tipo_r1
+                      [checked]="
+                        test1.preguntas[test1.pregunta].repuesta_sin_sueno ==
+                          tipo_r1.value ||
+                        test1.preguntas[test1.pregunta].repuesta_sin_sueno ==
+                          false
+                      "
+                      (click)="
+                        test1.preguntas[test1.pregunta].repuesta_sin_sueno =
+                          tipo_r1.value
+                      "
+                      value="false"
+                      type="radio"
+                    /><span style="font-size: 1.2rem">
+                      No soñé ninguna carrera</span
+                    >
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="tipo_respuesta_5"
+                      #tipo_r2
+                      [checked]="
+                        test1.preguntas[test1.pregunta].repuesta_sin_sueno ==
+                          tipo_r2.value ||
+                        test1.preguntas[test1.pregunta].repuesta_sin_sueno ==
+                          true
+                      "
+                      (click)="
+                        test1.preguntas[test1.pregunta].repuesta_sin_sueno =
+                          tipo_r2.value
+                      "
+                      value="true"
+                      type="radio"
+                    /><span style="font-size: 1.2rem">
+                      Sí soñé alguna carrera</span
+                    >
+                  </label>
+                </div>
+                <div
+                  *ngIf="
+                    test1.preguntas[test1.pregunta].repuesta_sin_sueno ==
+                      true ||
+                    test1.preguntas[test1.pregunta].repuesta_sin_sueno == 'true'
+                  "
+                >
+                  <!-- Respuestas -->
+                  <div
+                    class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                  >
+                    <!-- Opción Respuesta-->
+                    <div class="form-group">
+                      <label class="px-3">Profesión 1</label>
+                      <input
+                        type="text"
+                        name="respuesta1"
+                        list="profesiones"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].respuesta1"
+                        class="form-control"
+                        placeholder="Selecciona o escribe aquí"
+                      />
+                      <datalist id="profesiones" style="width: 100%">
+                        <option *ngFor="let profesion of profesiones">
+                          {{ profesion }}
+                        </option>
+                      </datalist>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                  >
+                    <!-- Opción Respuesta-->
+                    <div class="form-group">
+                      <label class="px-3">Profesión 2</label>
+                      <input
+                        type="text"
+                        name="respuesta2"
+                        list="profesiones"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].respuesta2"
+                        class="form-control"
+                        placeholder="Selecciona o escribe aquí"
+                      />
+                      <datalist id="profesiones" style="width: 100%">
+                        <option *ngFor="let profesion of profesiones">
+                          {{ profesion }}
+                        </option>
+                      </datalist>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                  >
+                    <!-- Opción Respuesta-->
+                    <div class="form-group">
+                      <label class="px-3">Profesión 3</label>
+                      <input
+                        type="text"
+                        list="profesiones"
+                        name="respuesta3"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].respuesta3"
+                        class="form-control"
+                        placeholder="Selecciona o escribe aquí"
+                      />
+
+                      <datalist id="profesiones" style="width: 100%">
+                        <option *ngFor="let profesion of profesiones">
+                          {{ profesion }}
+                        </option>
+                      </datalist>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                  >
+                    <!-- Opción Respuesta-->
+                    <div class="form-group">
+                      <label class="px-3">Profesión 4</label>
+                      <input
+                        type="text"
+                        list="profesiones"
+                        name="respuesta4"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].respuesta4"
+                        class="form-control"
+                        placeholder="Selecciona o escribe aquí"
+                      />
+                      <datalist id="profesiones" style="width: 100%">
+                        <option *ngFor="let profesion of profesiones">
+                          {{ profesion }}
+                        </option>
+                      </datalist>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Pregunta 5 Test 1-->
+        <div
+          *ngIf="test1.pregunta == 5"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="container tamaño1">
+            <div class="row p-0">
+              <div class="col-sm-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/t7.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+                <img
+                  src="./assets/images/body6.gif"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp gifPos margeGif2"
+                />
+              </div>
+              <div class="col-sm-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >{{ test1.preguntas[test1.pregunta].texto }}</label
+                  >
+                </div>
+                <!-- Respuestas -->
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Selecciona una opción</label>
+
+                    <select
+                      class="form-control"
+                      name="respuesta"
+                      [(ngModel)]="test1.preguntas[test1.pregunta].respuesta"
+                    >
+                      <option
+                        [value]="trabajo"
+                        *ngFor="let trabajo of trabajos"
+                      >
+                        {{ trabajo }}
+                      </option>
+                    </select>
+
+                    <!--  <input type="text" list="trabajos" name="respuesta"
+                      [(ngModel)]='test1.preguntas[test1.pregunta].respuesta' class="form-control"
+                      placeholder="Escribe aquí"> -->
+                    <!-- <datalist id="trabajos" style="width: 100%;">
+                      <option *ngFor='let trabajo of trabajos'>{{trabajo}}</option>
+                    </datalist> -->
+                    <div
+                      *ngIf="
+                        test1.preguntas[test1.pregunta].respuesta === 'Otro'
+                      "
+                    >
+                      <small class="text-muted"
+                        >Seleccionaste la opción otro</small
+                      >
+                      <input
+                        type="text"
+                        name="otro"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].otro"
+                        class="form-control"
+                        placeholder="Escribe aquí"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Pregunta 6 test 1-->
+        <div
+          *ngIf="test1.pregunta == 6"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="container">
+            <div class="row p-0">
+              <div class="col-sm-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/t8.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+                <img
+                  src="./assets/images/body2.gif"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp gifPos margeGif2"
+                />
+              </div>
+              <div class="col-sm-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >{{ test1.preguntas[test1.pregunta].texto }}</label
+                  >
+                </div>
+                <!-- Respuestas -->
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Opción 1</label>
+                    <select
+                      class="form-control"
+                      name="respuesta1"
+                      [(ngModel)]="test1.preguntas[test1.pregunta].respuesta1"
+                    >
+                      <option [value]="gusto" *ngFor="let gusto of gustos1">
+                        {{ gusto }}
+                      </option>
+                    </select>
+                    <!--  <input type="text" name="respuesta1" list="gustos" [(ngModel)]='test1.preguntas[test1.pregunta].respuesta1'
+                      class="form-control" placeholder="Escribe aquí">
+                    <datalist id="gustos71" style="width: 100%;">
+                      <option *ngFor='let gusto of gustos1'>{{gusto}}</option>
+                    </datalist> -->
+                    <div
+                      *ngIf="
+                        test1.preguntas[test1.pregunta].respuesta1 === 'Otro'
+                      "
+                    >
+                      <small class="text-muted"
+                        >Seleccionaste la opción otro</small
+                      >
+                      <input
+                        type="text"
+                        name="otro1"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].otro1"
+                        class="form-control"
+                        placeholder="Escribe aquí"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Opción 2</label>
+                    <select
+                      class="form-control"
+                      name="respuesta72"
+                      [(ngModel)]="test1.preguntas[test1.pregunta].respuesta2"
+                    >
+                      <option [value]="gusto" *ngFor="let gusto of gustos1">
+                        {{ gusto }}
+                      </option>
+                    </select>
+                    <!-- <input type="text" name="respuesta72" list="gustos" [(ngModel)]='test1.preguntas[test1.pregunta].respuesta2'
+                      class="form-control" placeholder="Escribe aquí">
+                    <datalist id="gustos" style="width: 100%;">
+                      <option *ngFor='let gusto of gustos1'>{{gusto}}</option>
+                    </datalist> -->
+                    <div
+                      *ngIf="
+                        test1.preguntas[test1.pregunta].respuesta2 === 'Otro'
+                      "
+                    >
+                      <small class="text-muted"
+                        >Seleccionaste la opción otro</small
+                      >
+                      <input
+                        type="text"
+                        name="otro2"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].otro2"
+                        class="form-control"
+                        placeholder="Escribe aquí"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Opción 3</label>
+                    <select
+                      class="form-control"
+                      name="respuesta3"
+                      [(ngModel)]="test1.preguntas[test1.pregunta].respuesta3"
+                    >
+                      <option [value]="gusto" *ngFor="let gusto of gustos1">
+                        {{ gusto }}
+                      </option>
+                    </select>
+                    <!-- <input type="text" list="gustos" name="respuesta3" [(ngModel)]='test1.preguntas[test1.pregunta].respuesta3'
+                      class="form-control" placeholder="Escribe aquí">
+                    <datalist id="gustos" style="width: 100%;">
+                      <option *ngFor='let gusto of gusto1'>{{gusto}}</option>
+                    </datalist> -->
+                    <div
+                      *ngIf="
+                        test1.preguntas[test1.pregunta].respuesta3 === 'Otro'
+                      "
+                    >
+                      <small class="text-muted"
+                        >Seleccionaste la opción otro</small
+                      >
+                      <input
+                        type="text"
+                        name="otro3"
+                        [(ngModel)]="test1.preguntas[test1.pregunta].otro3"
+                        class="form-control"
+                        placeholder="Escribe aquí"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a
+            href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda%20con%20la%20pregunta%20{{
+              test1.pregunta
+            }}%20del%20Test%20So%C3%B1ando%20un%20Futuro"
+            class="imgWP"
+            target="_blank"
+            >Ayuda <img src="./assets/images/wp.png" style="width: 40px"
+          /></a>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            *ngIf="test1.pregunta > 0"
+            (click)="test1_back()"
+          >
+            Atrás
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test1.pregunta < 6"
+            (click)="test1_next()"
+          >
+            Siguiente
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test1.pregunta == 6"
+            data-toggle="modal"
+            data-target="#ModalConfirmarTest1"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal Confirmar Test1-->
+<div
+  class="modal fade"
+  id="ModalConfirmarTest1"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-warning">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar Guardado</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          ¿Está seguro que desea guardar el test para habilitar el siguiente?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="test1_save()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Test2 -->
+<div
+  class="modal fade"
+  id="ModalTest2"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          2. TEST DE INTERESES
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left bgmodal">
+        <!--Consigna Test 2-->
+        <div
+          *ngIf="test2.pregunta == 0"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <label>{{ test2.preguntas[test2.pregunta].texto }}</label>
+          </div>
+          <div>
+            <ul>
+              <li>5 = Mucho interés</li>
+              <li>4 = Bastante interés</li>
+              <li>3 = Interés regular</li>
+              <li>2 = Sólo un poco de interés</li>
+              <li>1 = No me interesa</li>
+            </ul>
+          </div>
+          <div class="form-group">
+            <label
+              >Evaluarás diferentes áreas de interés del inciso A hasta la
+              H.</label
+            >
+          </div>
+        </div>
+        <!--Pregunta 1 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 1"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>
+                    Me gusta el dibujo lineal(hacer diseños, planos,
+                    proyecciones)
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Soy preciso y riguroso cuando dibujo</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta reparar aparatos</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Siempre que desarmo algo soy capaz de volver a montarlo
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    En mis ratos libres hago bricolaje(carpintería, plomería,
+                    electricidad, etc.)
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>No tengo dificultad para manejar herramientas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me interesa la construcción de maquetas, estructuras</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Me gustaría diseñar y crear objetos, aparatos, partes de
+                    máquinas, etc.
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    No tengo dificultades para aprender a manejar cualquier
+                    aparato nuevo
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Intento actualizarme tecnológicamente (programas, apps,
+                    aparatos, etc.)
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!--Pregunta 2 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 2"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>Tengo rapidez y exactitud en el cálculo mental</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Planeo y soluciono bien los problemas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gustan las matemáticas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Analizo e interpreto los datos numéricos</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gustan los cálculos sobre el manejo del dinero</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Suelo hacer bien cualquier operación</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Resuelvo ejercicios de química</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Soluciono bien los problemas de física</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Armo rompecabezas con gran facilidad</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me oriento bien interpretando un mapa</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Pregunta 3 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 3"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>Suelo comprender bien cualquier explicación</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta debatir temas con otras personas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Encuentro con facilidad las palabras adecuadas para lo que
+                    quiero decir
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Estoy informado de lo que pasa en mi región</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta la lectura</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Tengo capacidad de negociar con las personas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gustan los idiomas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Creo que el diálogo es enriquecedor para las personas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Redacto bien</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Logro convencer a personas sobre algunos temas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Pregunta 4 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 4"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>Me gusta conocer gente nueva</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Soy sociable y me relaciono con facilidad</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Resuelvo problemas hablando con las personas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Creo que hablo bien en público</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta exponer algún tema en clase</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta trabajar en equipo</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Dirijo el grupo en el que me encuentro</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Animo a mis amigos si se encuentran tristes</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Suelo ser un ejemplo a seguir en mi grupo de amigos</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Los demás creen que soy sociable</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Pregunta 5 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 5"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>Tengo facilidad para tocar instrumentos musicales</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me interesa la composición musical</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Mis compañeros opinan que dibujo bien</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Realizo bien los trabajos manuales</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me expreso corporalmente a través de la danza</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Disfruto actuar en obras de teatro</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Conozco algunos de los museos de mi ciudad</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta sacar fotos</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Utilizo mis manos para moldear o crear objetos</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Me gusta el dibujo lineal (láminas, diseños, planos,
+                    proyecciones)
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Pregunta 6 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 6"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>
+                    Me preocupo por la presentación de los trabajos que realizo
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Soy creativo</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta que mi ropa sea diferente a la de los demás</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Intento resolver un problema de diferentes maneras</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me adapto con facilidad ante cualquier cambio</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Creo que hay que actualizarse continuamente e innovar</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Mis amigos piensan que soy imaginativo y original</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Tengo rapidez en la solución de cualquier problema</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Soy bastante bueno cuando dibujo</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Soy capaz de inventar o crear nuevas cosas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Pregunta 7 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 7"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>Me preocupa el cuidado de la naturaleza</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Creo que es lamentable que se destruya nuestro entorno
+                    natural
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta realizar actividades en el campo</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Reciclo la basura</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Creo que a través de la física y química podemos comprender
+                    mejor el entorno
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta cuidar a los animales</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Valoro la diversidad de animales y plantas</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Me gustaría bucear bajo el mar para conocer la flora y fauna
+                    marina
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gusta la Biología</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me gustaría cultivar mis propios alimentos</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Pregunta 8 Test 2-->
+        <div
+          *ngIf="test2.pregunta == 8"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div
+              class="mb-3 container bg-info rounded animate__animated animate__bounce Sombra"
+            >
+              <!-- TItulo En CajaNegra -->
+              <label
+                class="text-light font-weight-bold"
+                style="font-size: larger"
+                >{{ test2.preguntas[test2.pregunta].texto }}</label
+              >
+            </div>
+            <table
+              class="table-striped animate__animated animate__bounce"
+              style="width: 100%"
+            >
+              <tbody>
+                <tr>
+                  <th>Realizo algún deporte</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta1"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta1"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Considero que la higiene y el cuidado personal son
+                    importantes
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta2"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta2"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Procuro comer equilibradamente</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta3"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta3"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me preocupa mi imagen personal</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta4"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta4"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Me preocupa y ayudo cuando alguien está enfermo</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta5"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta5"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Disfruto preparando mis alimentos</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta6"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta6"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>En mi escala de valores la salud es lo primero</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta7"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta7"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Tengo interés por aprender sobre las enfermedades y cómo
+                    curarlas
+                  </th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta8"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta8"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Mis amigos me piden apoyo y confían en mí</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta9"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta9"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Intento ayudar a los demás</th>
+                  <td>
+                    <input
+                      style="width: 50px; height: 30px"
+                      name="respuesta10"
+                      [(ngModel)]="test2.preguntas[test2.pregunta].respuesta10"
+                      type="number"
+                      max="5"
+                      min="1"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a
+            href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda%20con%20la%20pregunta%20{{
+              test2.pregunta
+            }}%20del%20Test%20de%20Intereses"
+            class="imgWP"
+            target="_blank"
+            >Ayuda <img src="./assets/images/wp.png" style="width: 40px"
+          /></a>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            *ngIf="test2.pregunta > 0"
+            (click)="test2_back()"
+          >
+            Atrás
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test2.pregunta < 8"
+            (click)="test2_next()"
+          >
+            Siguiente
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test2.pregunta == 8"
+            data-toggle="modal"
+            data-target="#ModalConfirmarTest2"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal Confirmar Test2-->
+<div
+  class="modal fade"
+  id="ModalConfirmarTest2"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-warning">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar Guardado</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          ¿Está seguro que desea guardar el test para habilitar el siguiente?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="test2_save()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Test3 -->
+<div
+  class="modal fade"
+  id="ModalTest3"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          3. INVENTARIO DE APTITUDES
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left">
+        <!--Consigna Test 3-->
+        <div
+          *ngIf="test3.pregunta == 0"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <label>{{ test3.preguntas[test3.pregunta].texto }}</label>
+          </div>
+          <diV>
+            <ul>
+              <li>4 = Muy bueno/a</li>
+              <li>3 = Bastante bueno/a</li>
+              <li>2 = Regular</li>
+              <li>1 = Malo/a</li>
+            </ul>
+          </diV>
+        </div>
+        <!--Pregunta 1 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 1"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row p-0">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3a.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Diseñar, dibujar, crear</li>
+                  <li>Construir, instalar, armar</li>
+                  <li>
+                    Manejar aparatos, programas y aplicaciones técnologicas
+                  </li>
+                  <li>Trabajos de precisión (medir, pegar, calcular, etc.)</li>
+                  <li>Manejar diferentes materiales</li>
+                  <li>Reparar objetos, aparatos</li>
+                  <li>Manejar herramientas</li>
+                  <li>Ajustar, rellenar, cortar</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 2 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 2"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row p-0">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3b.png"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3 img-thumbnail"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Preservar el Medio Ambiente y recursos naturales</li>
+                  <li>Hacer deporte, ejercitar el cuerpo</li>
+                  <li>Entender los fenómenos naturales</li>
+                  <li>Trabajar en contacto con la naturaleza</li>
+                  <li>Trabajar/ cultivar huertos y campos</li>
+                  <li>Cuidar animales</li>
+                  <li>Elaborar alimentos</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 3 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 3"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row p-0">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3c.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Ejecutar instrucciones y tareas muy detalladas</li>
+                  <li>Tener las cosas hechas a tiempo</li>
+                  <li>Llevar muchas actividades al mismo tiempo</li>
+                  <li>Saber encontrar los materiales y lo que se necesite</li>
+                  <li>
+                    Ordenar, tabular, clasificar: datos, objetos, información
+                  </li>
+                  <li>Registrar en la computadora</li>
+                  <li>Ofrecer un producto o servicio a alguien</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 4 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 4"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3d.png"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Contar, calcular con rapidez</li>
+                  <li>Saber ahorrar y gastar el dinero</li>
+                  <li>
+                    Saber valorar, estimar el valor de las cosas y trabajos
+                  </li>
+                  <li>Observar, investigar</li>
+                  <li>Analizar información</li>
+                  <li>Explicar fenómenos, resolver problemas</li>
+                  <li>Manejar aparatos, funciones, aplicaciones</li>
+                  <li>Entender sobre la composición de las cosas</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 5 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 5"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3e.png"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6">
+                <ul style="list-style: none">
+                  <li>Dar e inspirar confianza</li>
+                  <li>Animar, ayudar a la gente</li>
+                  <li>Persuadir, debatir, influir, convencer</li>
+                  <li>Arbitrar, juzgar</li>
+                  <li>Atender personas, curar</li>
+                  <li>Interactuar con personas, comunicarse, educar</li>
+                  <li>
+                    Ayudar en la solución de problemas personales, familiares,
+                    sociales, legales, de salud, etc
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 6 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 6"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3f.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Realizar actividades artísticas</li>
+                  <li>Sentido teatral</li>
+                  <li>Tocar música, bailar, cantar</li>
+                  <li>Apreciar el arte y la cultura</li>
+                  <li>Crear, diseñar , pintar y modelar</li>
+                  <li>Componer, arreglar</li>
+                  <li>Creatividad para escribir o hacer cosas</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 7 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 7"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3j.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Leer, revisar información</li>
+                  <li>Componer, comparar, definir, explicar, enseñar</li>
+                  <li>Traducir, hacer de intérprete</li>
+                  <li>Resumir , investigar temas</li>
+                  <li>Escribir, hacer redacciones y artículos</li>
+                  <li>Informar, comunicar</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 8 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 8"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/admin.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Hacer planes</li>
+                  <li>Diseñar proyectos cercanos o futuros</li>
+                  <li>
+                    Organizar a la gente: agrupando, distribuyendo funciones y
+                    tareas
+                  </li>
+                  <li>Iniciar actos y actividades</li>
+                  <li>Guiar, motivar, animar a los otros</li>
+                  <li>Dirigir, mandar, controlar</li>
+                  <li>Buscar soluciones</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 9 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 9"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/profe.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Enseñar</li>
+                  <li>Aconsejar , observar, escuchar</li>
+                  <li>Desarrollar en los demás sus fuerzas y aptitudes</li>
+                  <li>Ayudar, acompañar , servir, solucionar</li>
+                  <li>Interactuar con personas, comunicarse</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 10 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 10"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <label
+                    class="text-light font-weight-bold text-center"
+                    style="font-size: larger"
+                    >{{ test3.preguntas[test3.pregunta].texto }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row">
+              <div
+                class="col-sm-6 BloqueIsquierdo d-flex justify-content-center"
+              >
+                <img
+                  src="./assets/images/t3k.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPosTest3"
+                />
+              </div>
+              <div class="col-sm-6 BloqueDerecho">
+                <ul style="list-style: none">
+                  <li>Imaginar, diseñar, crear</li>
+                  <li>Innovar, renovar, modificar</li>
+                  <!-- <li>Crear</li> -->
+                  <li>Dibujar (dibujo artístico y técnico)</li>
+                  <li>Memoria espacial y fotográfica</li>
+                  <li>Descubrir, investigar</li>
+                  <li>Hacer con diferentes medios o materiales</li>
+                  <li>Analizar, redactar, componer</li>
+                  <!-- <li>Redactar</li> -->
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r4
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r4.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r4.value
+                      "
+                      value="4"
+                      type="radio"
+                    />
+                    4 Muy bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r3
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r3.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r3.value
+                      "
+                      value="3"
+                      type="radio"
+                    />
+                    3 Bastante bueno
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r2
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r2.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r2.value
+                      "
+                      value="2"
+                      type="radio"
+                    />
+                    2 Regular
+                  </label>
+                </div>
+                <div class="form-check-inline d-flex align-items-start">
+                  <label class="form-check-label test3txt">
+                    <input
+                      name="respuesta"
+                      #r1
+                      [checked]="
+                        test3.preguntas[test3.pregunta].respuesta == r1.value
+                      "
+                      (click)="
+                        test3.preguntas[test3.pregunta].respuesta = r1.value
+                      "
+                      value="1"
+                      type="radio"
+                    />
+                    1 Malo
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 11 Test 3-->
+        <div
+          *ngIf="test3.pregunta == 11"
+          class="animate__animated animate__fadeIn"
+        >
+          <div
+            class="mb-3 container-fluid animate__animated animate__slideInLeft"
+          >
+            <div class="row">
+              <div class="col-12 bg-primary">
+                <div
+                  class="row bg-info align-items-center justify-content-center"
+                >
+                  <p class="text-light text-center" style="font-size: larger">
+                    <b>{{ test3.preguntas[test3.pregunta].texto }}</b>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group animate__animated animate__slideInRight">
+            <div class="row m-2">
+              <table
+                class="table-striped animate__animated animate__bounce"
+                style="width: 100%"
+              >
+                <tr>
+                  <th>Grupo</th>
+                  <th>Puntaje</th>
+                  <th>Selección</th>
+                </tr>
+                <tr *ngFor="let g of grupos_mostrar">
+                  <td>{{ g.texto }}</td>
+                  <td style="text-align: center">
+                    <b>{{ g.valor }}</b>
+                  </td>
+                  <td style="text-align: center">
+                    <input type="checkbox" [(ngModel)]="g.check" />
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a
+            href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda%20con%20la%20pregunta%20{{
+              test3.pregunta
+            }}%20del%20Test%20de%20Aptitudes"
+            class="imgWP"
+            target="_blank"
+            >Ayuda <img src="./assets/images/wp.png" style="width: 40px"
+          /></a>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            *ngIf="test3.pregunta > 0"
+            (click)="test3_back()"
+          >
+            Atrás
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test3.pregunta < 11"
+            (click)="test3_next()"
+          >
+            Siguiente
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test3.pregunta == 11"
+            data-toggle="modal"
+            data-target="#ModalConfirmarTest3"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal Confirmar Test3-->
+<div
+  class="modal fade"
+  id="ModalConfirmarTest3"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-warning">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar Guardado</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          ¿Está seguro que desea guardar el test para habilitar el siguiente?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="test3_save()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Test4 -->
+<div
+  class="modal fade"
+  id="ModalTest4"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">4. CONOCIÉNDOTE</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left bgmodal">
+        <!--Consigna Test 4-->
+        <div
+          *ngIf="test4.pregunta == 0"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <label>{{ test4.preguntas[test4.pregunta].texto }}</label>
+          </div>
+        </div>
+        <!--Pregunta 1 Test 4-->
+        <div
+          *ngIf="test4.pregunta == 1"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="container">
+            <div class="row p-0">
+              <div class="col-sm-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/t6.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+                <img
+                  src="./assets/images/body5.gif"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp gifPos margeGif2"
+                />
+              </div>
+              <div class="col-sm-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >{{ test4.preguntas[test4.pregunta].texto }}</label
+                  >
+                </div>
+                <!-- Respuestas -->
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 1</label>
+                    <input
+                      type="text"
+                      name="respuesta1"
+                      list="profesiones"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuesta1"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 2</label>
+                    <input
+                      type="text"
+                      name="respuesta2"
+                      list="profesiones"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuesta2"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 3</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuesta3"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuesta3"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 4</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuesta4"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuesta4"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 2 Test 4-->
+        <div
+          *ngIf="test4.pregunta == 2"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="form-group">
+            <div class="container">
+              <div class="row p-0">
+                <div class="col-sm-12 BloqueDerecho">
+                  <div
+                    class="container bg-info rounded animate__animated animate__bounce Sombra"
+                  >
+                    <label
+                      class="text-light font-weight-bold"
+                      style="font-size: larger"
+                    >
+                      <p>
+                        3. Indica cómo valorarías los siguientes aspectos al
+                        momento de elegir un trabajo:<br />
+                        -Positivo/no tendría problema con ello (SI) <br />
+                        -Negativo/ no me gustaría (NO)
+                      </p>
+                    </label>
+                  </div>
+                  <!-- Respuestas -->
+                  <div class="row" style="margin-top: 2vw">
+                    <div class="col-sm-12">
+                      <table
+                        class="table-striped animate__animated animate__bounce"
+                        style="width: 100%"
+                      >
+                        <tbody>
+                          <tr>
+                            <th>Si es en una oficina (ambiente cerrado)</th>
+                            <td>
+                              <select
+                                name="respuesta1"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta1
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Si es al aire libre o en el campo</th>
+                            <td>
+                              <select
+                                name="respuesta2"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta2
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Si es en la ciudad</th>
+                            <td>
+                              <select
+                                name="respuesta3"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta3
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Si debo trabajar con personas</th>
+                            <td>
+                              <select
+                                name="respuesta4"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta4
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Si debo trabajar con máquinas</th>
+                            <td>
+                              <select
+                                name="respuesta5"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta5
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Si debo ver sangre, heridos</th>
+                            <td>
+                              <select
+                                name="respuesta6"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta6
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Si debo trabajar con herramientas</th>
+                            <td>
+                              <select
+                                name="respuesta7"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta7
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Si debo trabajar con animales</th>
+                            <td>
+                              <select
+                                name="respuesta8"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta8
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Trabajo en equipo</th>
+                            <td>
+                              <select
+                                name="respuesta9"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta9
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th>Cumplir turnos de trabajo (más de 8 horas)</th>
+                            <td>
+                              <select
+                                name="respuesta10"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta10
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Trabajo normal de 8 horas</th>
+                            <td>
+                              <select
+                                name="respuesta11"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta11
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Trabajo con viajes constantes</th>
+                            <td>
+                              <select
+                                name="respuesta12"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta12
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              Trabajo dinámico (debo moverme de un lugar a otro)
+                            </th>
+                            <td>
+                              <select
+                                name="respuesta13"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta13
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              Trabajo sedentario (estoy sentado la mayoría del
+                              tiempo)
+                            </th>
+                            <td>
+                              <select
+                                name="respuesta14"
+                                [(ngModel)]="
+                                  test4.preguntas[test4.pregunta].respuesta14
+                                "
+                              >
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Pregunta 6 Test 4-->
+        <div
+          *ngIf="test4.pregunta == 3"
+          class="animate__animated animate__fadeIn"
+        >
+          <div class="container">
+            <div class="row p-0">
+              <div class="col-12 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <p class="text-light" style="font-size: larger">
+                    <b>{{ test4.preguntas[test4.pregunta].texto }}</b>
+                    Indica 2 como mínimo y 5 como máximo en cada sección.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Respuestas -->
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <P>Trabajos que <b>SÍ ACEPTARÍA</b></P>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 1</label>
+                    <input
+                      type="text"
+                      name="respuestaSi1"
+                      list="profesiones"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaSi1"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaSi1=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaSi1" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaSi1' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 2</label>
+                    <input
+                      type="text"
+                      name="respuestaSi2"
+                      list="profesiones"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaSi2"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaSi2=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaSi2" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaSi2' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 3</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuestaSi3"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaSi3"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaSi3=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaSi3" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaSi3' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 4</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuestaSi4"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaSi4"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaSi4=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaSi4" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaSi4' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 5</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuestaSi5"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaSi5"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaSi5=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaSi5" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaSi5' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <p>Trabajos que <b>NO ACEPTARÍA</b></p>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 1</label>
+                    <input
+                      type="text"
+                      name="respuestaNo1"
+                      list="profesiones"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaNo1"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaNo1=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otroo</small>
+                      <input type="text" name="OtroRespuestaNo1" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaNo1' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 2</label>
+                    <input
+                      type="text"
+                      name="respuestaNo2"
+                      list="profesiones"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaNo2"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaNo2=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaNo2" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaNo2' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 3</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuestaNo3"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaNo3"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!-- <div *ngIf="test4.preguntas[test4.pregunta].respuestaNo3=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaNo3" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaNo3' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 4</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuestaNo4"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaNo4"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!--  <div *ngIf="test4.preguntas[test4.pregunta].respuestaNo4=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaNo4" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaNo4' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <!-- Opción Respuesta-->
+                  <div class="form-group">
+                    <label class="px-3">Trabajo 5</label>
+                    <input
+                      type="text"
+                      list="profesiones"
+                      name="respuestaNo5"
+                      [(ngModel)]="test4.preguntas[test4.pregunta].respuestaNo5"
+                      class="form-control"
+                      placeholder="Selecciona o escribe aquí"
+                    />
+                    <datalist id="profesiones" style="width: 100%">
+                      <option *ngFor="let profesion of profesiones">
+                        {{ profesion }}
+                      </option>
+                    </datalist>
+                    <!--  <div *ngIf="test4.preguntas[test4.pregunta].respuestaNo5=='Otro'">
+                      <small class="text-muted">Seleccionaste la opción otro</small>
+                      <input type="text" name="OtroRespuestaNo5" [(ngModel)]='test4.preguntas[test4.pregunta].OtroRespuestaNo5' class="form-control"
+                        placeholder="Escribe aquí" />
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a
+            href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda%20con%20la%20pregunta%20{{
+              test4.pregunta
+            }}%20de%20las%20Preguntas%20de%20Complementarias"
+            class="imgWP"
+            target="_blank"
+            >Ayuda <img src="./assets/images/wp.png" style="width: 40px"
+          /></a>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            *ngIf="test4.pregunta > 0"
+            (click)="test4_back()"
+          >
+            Atrás
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test4.pregunta < 3"
+            (click)="test4_next()"
+          >
+            Siguiente
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            *ngIf="test4.pregunta == 3"
+            data-toggle="modal"
+            data-target="#ModalConfirmarTest4"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal Confirmar Test4-->
+<div
+  class="modal fade"
+  id="ModalConfirmarTest4"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-warning">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar Guardado</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro que desea finalizar todos los tests?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="test4_save()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal Salir-->
+<div
+  class="modal fade"
+  id="ModalSalir"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Esta seguro que desea salir del sitio?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="salir()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

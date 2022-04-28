@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "upds-test": {
+      "hosting": {
+        "testorientacion": [
+          "upds-test"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "upds-test"
+  }
+}

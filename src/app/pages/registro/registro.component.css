@@ -1,0 +1,33 @@
+.registro{
+    width: 400px;
+}
+* > input{
+    font-size: 14px;
+}
+.drown{
+  font-size: 14px;
+}
+@media only screen and (max-width: 600px) {
+    .registro{
+      width: 100%; 
+    }
+  }
+  .bgreg {  
+    background-image: url("/testorientacion/assets/images/cuaderno4.jpg");
+    height: 100%;   
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; 
+  }
+  .bgmadera {  
+    background-image: url("/testorientacion/assets/images/madera.jpeg");
+    height: 100%;   
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+  input::-webkit-calendar-picker-indicator {
+    opacity: 100;
+  }

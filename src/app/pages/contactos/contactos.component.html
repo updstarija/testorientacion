@@ -1,0 +1,83 @@
+<nav
+  style="background-color: #003366"
+  class="navbar navbar-expand-md navbar-dark fixed-top"
+>
+  <a class="navbar-brand" [routerLink]="['/principal']">UPDS</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="mr-2" style="font-size: 0.9rem">menu</span>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/principal']"
+          >Inicio <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/resultados']">Mis resultados</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/contactos']">Contacto</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <label class="text-white"
+        >{{ usuario?.nombres }} {{ usuario?.apellidos }} &nbsp;&nbsp;</label
+      >
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        data-toggle="modal"
+        data-target="#ModalSalir"
+        type="button"
+      >
+        Salir
+      </button>
+    </form>
+  </div>
+</nav>
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <!-- <div class="jumbotron">   
+        <p style="margin-top: 30px;">Si tienes alguna consulta sobre el Test, comunícate a la UPDS-Área de Bienestar Estudiantil.  <br>
+          <i class="fa fas fa-phone" aria-hidden="true"> </i>Telf.: (4) 665-8303 Int.: 156 / 160, o a los celulares: 
+          <a href="https://api.whatsapp.com/send?phone=59169302171&text=Hola%20necesito%20ayuda" class="imgWP" target="_blank">          
+            <img src="/assets/images/wp.png" style="width: 30px;" />69302171</a> / <a href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda" class="imgWP" target="_blank">          
+              <img src="/assets/images/wp.png" style="width: 30px;" />75122913</a></p>   
+    </div>     -->
+  <div class="jumbotron">
+    <p style="margin-top: 30px">
+      Si tienes alguna consulta sobre el Test, comunícate a la UPDS-Área de
+      Bienestar Estudiantil. <br />
+      <i class="fa fas fa-phone" aria-hidden="true"> </i>Telf.: (4) 665-8303
+      Int.: 156 / 160
+    </p>
+    <p>
+      <span>Celulares: </span>
+      <a
+        href="https://api.whatsapp.com/send?phone=59169302171&text=Hola%20necesito%20ayuda%20con%20el%20Test%20POAP"
+        class="imgWP"
+        target="_blank"
+      >
+        <img src="./assets/images/wp.png" style="width: 30px" />69302171
+      </a>
+      /
+      <a
+        href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda%20con%20el%20Test%20POAP"
+        class="imgWP"
+        target="_blank"
+      >
+        <img src="./assets/images/wp.png" style="width: 30px" />75122913
+      </a>
+    </p>
+  </div>
+</main>

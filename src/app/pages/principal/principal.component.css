@@ -1,0 +1,291 @@
+.bgmodal {  
+  background-image: url("/testorientacion/assets/images/fodamodal.jpg");
+  height: 100%;   
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+.Sombra{
+    box-shadow: 0px 0px 4px 2px #8D8D8D;
+}
+
+.jumbotron{
+  padding-bottom: 30px;
+}
+  @media only screen and (min-width: 600px) {
+    
+  }
+
+
+   /* Pantalla Muy Grande */
+   @media screen and (max-width: 2200px) {
+    .textoInicio{
+      text-align: center;
+    }
+    .BloqueIsquierdo{
+        padding: 2vw;
+        padding-right: 1vw;
+    }
+
+    .BloqueDerecho{
+        padding: 2vw;
+        padding-left: 1vw;
+    }
+    .bordeimg {
+      border: 1px solid white;
+      border-radius: 4px;
+      padding: 15px;    
+    }
+    .posicion
+    {
+      position: relative;
+    }
+    .imgPos{
+      position: absolute; 
+      z-index: 1; 
+      width: 86%;
+    }
+    .imgPosTest3{      
+      width: 85%;
+      height: 85%;
+    }
+    .imgPos3{
+      position: absolute; 
+      z-index: 1; 
+      width: 86%;
+    }
+    .gifPos{
+      position: absolute; 
+      z-index: 2; 
+    }
+    .tamaño1{
+      height: 300px;
+    }
+    .margeGif1{
+     top: 80px; 
+      width: 50%;
+    }
+    .margeGif2{
+      top: 250px; 
+      width: 70%;
+      margin-left: 60px;
+    }
+    .margeGif3{
+      top: 250px; 
+      margin-left: 60px;
+      width: 70%;
+    }
+    .margeGif4{
+      margin-top: 100px; 
+      width: 80%;
+      margin-left: 30px;
+    }
+    .bgPrincipal {  
+      background-image: url("/testorientacion/assets/images/fondoPrincipal2.jpg");       
+      width: 100%;      
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+    }
+    .imgLogo{
+      width: 20%;
+      margin-top: 30px;
+      margin-right: 20px;
+    }
+    .imgWP {
+      width: 75%;      
+    }
+  }
+  /* PantallaGrande */
+  @media screen and (max-width: 1500px) {
+    .textoInicio{
+      text-align: center;
+    }
+    .BloqueIsquierdo{
+        padding: 2vw;
+        padding-right: 1vw;
+    }
+    .BloqueDerecho{
+        padding: 2vw;
+        padding-left: 1vw;
+    }
+    .bordeimg {
+      border: 1px solid white;
+      border-radius: 4px;
+      padding: 15px;    
+    }
+    .posicion
+    {
+      position: relative;
+    }
+    .imgPos{
+      position: absolute; 
+      z-index: 1; 
+      width: 86%;
+    }
+    .imgPos3{
+      position: absolute; 
+      z-index: 1; 
+      width: 86%;
+    }
+    .gifPos{
+      position: absolute; 
+      z-index: 2; 
+    }
+    .tamaño1{
+      height: 300px;
+    }
+    .margeGif1{
+      top: 80px; 
+      width: 50%;
+    }
+    .margeGif2{
+      top: 250px; 
+      width: 70%;
+      margin-left: 60px;
+    }
+    .margeGif3{
+      top: 250px; 
+      margin-left: 50px;
+      width: 70%;
+    }
+    .margeGif4{
+      margin-top: 100px; 
+      width: 80%;
+      margin-left: 30px;
+    }
+    .bgPrincipal {  
+      background-image: url("/testorientacion/assets/images/fondoPrincipal2.jpg");       
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+    }
+    .imgLogo{
+      width: 20%;
+      margin-top: 30px;
+    }
+    .imgWP {
+      width: 75%;
+    }
+  }
+  /* Pantalla Celular */
+  @media screen and (max-width: 600px) {
+    .test3txt{
+      font-size: 10px;
+    }
+    .textoInicio{
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    .BloqueIsquierdo{
+        padding-right: 0vw;
+        padding-left: 0vw;
+        padding-bottom: 4vw;
+        padding-top: 0vw;
+    }
+    .BloqueDerecho{
+        padding-right: 0vw;
+        padding-left: 0vw;
+        padding-bottom: 0vw;
+        padding-top: 0vw;
+    }  
+    .tamaño1{
+      height: 410px;
+    } 
+    .posicion
+    {
+      position: static;
+    }    
+    .imgPos{
+      position: static; 
+      z-index: 1; 
+      width: 59%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .imgPos3{
+      position: static;  
+      z-index: 1; 
+      width: 89%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .gifPos{
+      position: absolute;
+      z-index: 2; 
+      top: 80px; 
+      
+    }
+    .margeGif1{
+      width: 20%;
+    }
+    .margeGif2{
+      top: 120px; 
+      width: 30%;
+      margin-left: 10px;
+    }
+    .margeGif3{
+      top: 140px; 
+      margin-left: 0px;
+      width: 30%;
+    }
+    .margeGif4{      
+      width: 25%;
+      margin-top: 23px; 
+      
+      margin-left: 0px;
+    }
+    .bgPrincipal {  
+      background-image: url("/testorientacion/assets/images/fondoPrincipal2.jpg");       
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .imgLogo{
+      width: 50%;
+      margin-top: 40px;
+    }
+    .imgWP {
+      width: 33%;
+    }
+  }
+  .imgLogo1{
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .imgLogo2{
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  input::-webkit-calendar-picker-indicator {
+    opacity: 100;
+  }
+  
+  @media screen and (max-width: 600px) {
+    
+    .imgLogo1{
+        width: 6rem;
+        margin-top: 3rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .imgLogo2{
+        width: 8rem;
+        margin-top: 3rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+    
+  

@@ -1,0 +1,86 @@
+.bg {  
+  background-image: url("/testorientacion/assets/images/hero.jpg");
+  height: 70%;   
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-fluid {
+  height: 100%;  
+}
+@font-face {
+  font-family: 'Patua One';
+  src: url("/testorientacion/assets/font/ZXuke1cDvLCKLDcimxB44_lr.ttf") format("truetype");
+}
+.logo{
+  width: 12%;
+}
+.programa{
+  font-size: 45px;
+}
+.testo{
+  font-size: 30px;
+}
+.imgWP {
+  margin-right: 15px;
+}
+@media only screen and (max-width: 360px) {
+  .programa{
+    font-size: 27px;
+  }
+  .logo{
+    width: 22%;
+  }
+  .testo{
+    font-size: 25px;
+  }
+}
+@media only screen and (max-height:605px) {
+  .programa{
+    font-size: 23px;
+  }
+  .logo{
+    width: 15%;
+    margin-top: 0%;
+  }
+  .testo{
+    font-size: 18px;
+  }
+}
+
+.inicioFondo{
+  width: auto;
+  background-color: orangered;
+}
+/* .btn-facebook {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-social {
+  position: relative;
+  padding-left: 44px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-social:hover {
+  color: #eee;
+}
+
+.btn-social :first-child {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  padding: 7px;
+  font-size: 1.6em;
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.2);
+} */

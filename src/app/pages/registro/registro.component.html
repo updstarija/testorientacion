@@ -1,0 +1,117 @@
+<div class="bgmadera">
+  <div class="bgreg container mx-auto p-5">
+    <div class="registro mx-auto">
+      <img
+        class="mx-auto animate__animated animate__slideInDown"
+        src="./assets/images/UPDS.png"
+        alt="Card image cap"
+      />
+      <h2 class="animate__animated animate__bounceIn">
+        Formulario de Registro
+      </h2>
+      <p class="animate__animated animate__bounceInDown">
+        Ingresa tus datos personales
+      </p>
+      <form role="form">
+        <div class="form-group animate__animated animate__fadeInLeft">
+          <input
+            type="text"
+            class="form-control"
+            name="nombres"
+            [(ngModel)]="usuario.nombres"
+            placeholder="Ingresa tus nombres"
+          />
+        </div>
+        <div class="form-group animate__animated animate__fadeInLeft">
+          <input
+            type="text"
+            class="form-control"
+            name="apellidos"
+            [(ngModel)]="usuario.apellidos"
+            placeholder="Ingresa tus apellidos"
+          />
+        </div>
+        <div
+          class="form-group animate__animated animate__fadeInLeft"
+          id="check"
+        >
+          <!-- <input type="text" class="form-control"  name='colegio' [(ngModel)]="usuario.colegio" placeholder="Ingresa el nombre de colegio"> -->
+          <input
+            style="text-transform: uppercase"
+            type="text"
+            list="colegios"
+            name="colegio"
+            [(ngModel)]="usuario.colegio"
+            class="form-control"
+            placeholder="ESCOGE O ESCRIBE TU U.E"
+          />
+          <datalist id="colegios" style="width: 100%">
+            <option
+              *ngFor="let colegio of colegios"
+              style="height: fit-content"
+            >
+              {{ colegio }}
+            </option>
+          </datalist>
+        </div>
+        <div class="form-group animate__animated animate__fadeInLeft">
+          <select
+            class="form-control drown text-secondary"
+            name="turno"
+            [(ngModel)]="usuario.turno"
+          >
+            <option value="" disabled selected>Selecciona el turno</option>
+            <option value="Mañana">Mañana</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noche">Noche</option>
+          </select>
+        </div>
+        <div class="form-group animate__animated animate__fadeInLeft">
+          <select
+            class="form-control drown text-secondary"
+            name="curso"
+            [(ngModel)]="usuario.curso"
+          >
+            <option value="" disabled selected>Selecciona el curso</option>
+            <option value="6A">6º A</option>
+            <option value="6B">6º B</option>
+            <option value="6C">6º C</option>
+            <option value="6D">6º D</option>
+            <option value="6E">6º E</option>
+          </select>
+        </div>
+        <div class="form-group animate__animated animate__fadeInLeft">
+          <input
+            required
+            minlength="8"
+            pattern="[0-9]"
+            maxlength="8"
+            type="text"
+            class="form-control"
+            name="telefono"
+            [(ngModel)]="usuario.telefono"
+            placeholder="Número de Whatsapp (BO)"
+          />
+        </div>
+        <div class="animate__animated animate__fadeInUpBig">
+          <button
+            type="button"
+            [disabled]="
+              !usuario.nombres ||
+              !usuario.apellidos ||
+              !usuario.colegio ||
+              !usuario.curso ||
+              !usuario.telefono
+            "
+            class="btn btn-secondary"
+            (click)="registro()"
+          >
+            Registrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="./assets/script/selectFilter.min.js"></script>

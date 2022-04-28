@@ -1,0 +1,1251 @@
+<nav
+  style="background-color: #003366"
+  class="navbar navbar-expand-md navbar-dark fixed-top"
+>
+  <a class="navbar-brand" [routerLink]="['/principal']">UPDS</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="mr-2" style="font-size: 0.9rem">menu</span>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/principal']"
+          >Inicio <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/resultados']">Mis resultados</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/contactos']">Contacto</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <label class="text-white"
+        >{{ usuario?.nombres | uppercase }}
+        {{ usuario?.apellidos | uppercase }} &nbsp;&nbsp;</label
+      >
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        data-toggle="modal"
+        data-target="#ModalSalir"
+        type="button"
+      >
+        Salir
+      </button>
+    </form>
+  </div>
+</nav>
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container" *ngIf="!usuario?.tests" style="margin-top: 40px">
+      <h2>Aún no realizaste los tests para poder ver tus resultados</h2>
+    </div>
+    <div
+      class="container"
+      *ngIf="usuario?.tests && !usuario?.calificado"
+      style="margin-top: 40px"
+    >
+      <h2>
+        ¡Has completado satisfactoriamente el Test de Orientación Vocacional!
+        Ahora será revisado, y próximamente te enviaremos un mensaje por
+        whatsapp, comunicándote que los resultados están listos.
+      </h2>
+    </div>
+    <div class="container" *ngIf="usuario.tests && usuario?.calificado">
+      <img src="./assets/images/logoupdstodo.png" class="imgLogo1" />
+      <img src="./assets/images/burgos.png" class="imgLogo2" />
+      <h5 class="mt-3" class="title_programa">
+        PROGRAMA DE ORIENTACIÓN ACADÉMICO PROFESIONAL(POAP)
+      </h5>
+      <h2>RESULTADOS DEL TEST DE ORIENTACIÓN VOCACIONAL</h2>
+      <div class="row">
+        <div class="col-12">
+          <p class="text-left">
+            <b>ESTUDIANTE: </b>{{ usuario.nombres | uppercase }}
+            {{ usuario?.apellidos | uppercase }}
+          </p>
+          <p class="text-left">
+            <b>UNIDAD EDUCATIVA: </b>{{ usuario.colegio | uppercase }}
+          </p>
+          <!-- <p class="text-justify">Te presentamos tus Resultados de Orientación Vocacional. En la primera sección  encontrarás una descripción de tus principales aptitudes, y a continuación las carreras que te sugerimos estudiar. </p> -->
+          <p class="text-justify">
+            Te presentamos tus Resultados de Orientación Vocacional. En esta
+            primera sección encontrarás una descripción de tus principales
+            aptitudes y las áreas de estudio a las que se vinculan.
+          </p>
+          <p class="text-justify">
+            Una aptitud es la capacidad y destreza para realizar algo, que se
+            obtiene en forma innata, o se adquiere o perfecciona, en virtud del
+            aprendizaje y la práctica. Las personas tienen una o más habilidades
+            y es muy poco probable que alguien posea grandes habilidades en
+            todos los campos.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo1
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              APTITUDES MANUALES O MECÁNICAS
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  TECNOLÓGICO: Profesiones que a través del dominio de la
+                  Tecnología hacen posible cualquier tipo de producto, aparato,
+                  maquinaria, instalación o construcción: Ingeniería en general.
+                  Implican habilidad manual y mecánica para diseñar, arreglar,
+                  construir objetos o realizar algo, como facilidad para
+                  manipular instrumentos o herramientas de cualquier tipo. Usan
+                  el conocimiento científico, matemático, técnica, arte,
+                  ciencia, imaginación y conocimiento de las ciencias naturales
+                  para solucionar problemas de la vida cotidiana.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ARTES PLÁSTICAS: Profesiones donde se requiere creatividad y
+                  la expresión de ideas a través del manejo de formas, colores,
+                  materiales y diseños en general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas relacionadas a las actividades manuales que
+                  se realizan en forma idéntica y rutinaria, haciendo una
+                  comparación con el trabajo que efectúa una máquina creando
+                  productos y servicios.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo2
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              HABILIDADES PARA EL DEPORTE Y ACTIVIDADES AL AIRE LIBRE
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  AGROPECUARIO/ MEDIO AMBIENTE: Profesiones vinculadas al manejo
+                  de recursos naturales, o que se desarrollan en contacto con la
+                  naturaleza. Abarcan lo agropecuario como la agricultura,
+                  ganadería y varias ingenierías.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ACTIVIDAD FÍSICA: Profesiones vinculadas a las Ciencias de la
+                  Actividad Física y el Deporte, que contemplan un conjunto de
+                  disciplinas del conocimiento, que se orientan a la
+                  realización, estudio y comprensión del deporte y la actividad
+                  física.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas relacionadas a la producción y elaboración
+                  de alimentos, cuidado de animales, trabajo en el campo,
+                  protección ambiental, actividades deportivas, recreacionales y
+                  de preparación física, etc.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo3
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              HABILIDADES PARA ACABAR LAS COSAS Y SER DETALLISTAS
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  CIENCIAS SOCIALES/HUMANIDADES: Profesiones que se desarrollan
+                  a través de las relaciones humanas y estudian al ser humano
+                  como ente social, dando gran énfasis a aspectos como el
+                  comportamiento, interacciones humanas y la cultura. Las
+                  habilidades comunicativas, una actitud crítica y prosocial del
+                  profesional contribuirán en el desarrollo social.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ECONOMÍA: Profesiones que hacen referencia a la administración
+                  en general, mundo empresarial y económico. Analizan las
+                  relaciones productivas, comerciales, de distribución y de
+                  consumo de bienes y servicios.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas de apoyo administrativo en tareas y/o
+                  proyectos económicos o sociales. Pueden requerir minuciosidad,
+                  rapidez, atención al detalle, registro, control e
+                  interpretación de la información, etc.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo4
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              HABILIDADES PARA EL MANEJO DE CIFRAS, NÚMEROS Y CONTROL DEL GASTO
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  CIENTÍFICO: Profesiones que a partir de la investigación
+                  aportan a la teoría científica básica para el desarrollo de
+                  nuevos materiales, técnicas y tecnología para la solución de
+                  problemas.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ECONOMÍA: Profesiones vinculadas al ámbito de la Economía, que
+                  hacen referencia a la administración en general, mundo
+                  empresarial y económico. Analizan las relaciones productivas,
+                  comerciales, de distribución y de consumo de bienes y
+                  servicios.
+                </p>
+              </li>
+              <li>
+                <p>
+                  TECNOLÓGICO: Profesiones que a través del dominio de la
+                  tecnología hacen posible cualquier tipo de producto, aparato,
+                  maquinaria, instalación o construcción: Ingeniería en general.
+                  Implican habilidad manual y mecánica para diseñar, arreglar,
+                  construir objetos o realizar algo, como facilidad para
+                  manipular instrumentos o herramientas de cualquier tipo. Usan
+                  el conocimiento científico, matemático, técnica, arte,
+                  ciencia, imaginación y conocimiento de las ciencias naturales
+                  para solucionar problemas de la vida cotidiana.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas relacionadas a las ventas, manejo de dinero,
+                  logística, manejo de aparatos y máquinas, trabajo en
+                  laboratorios o fábricas, apoyo administrativo, etc.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo5
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              HABILIDADES PARA INFLUIR, PERSUADIR, ATENDER
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  CIENCIAS SOCIALES/HUMANIDADES: Profesiones que se desarrollan
+                  a través de las relaciones humanas y estudian al ser humano
+                  como ente social, dando gran énfasis a aspectos como el
+                  comportamiento, interacciones humanas y la cultura. El buen
+                  manejo del lenguaje, las habilidades comunicativas y el
+                  pensamiento crítico del profesional contribuirán al desarrollo
+                  social.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ÁREA DE LA SALUD: Profesiones que se ocupan del cuidado de la
+                  salud de las personas previniendo o curando enfermedades.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ARTES PLÁSTICAS: Profesiones relacionadas con la creatividad
+                  plástica, literaria, que dominan la expresión de ideas o
+                  emociones a través del manejo de formas, colores, materiales y
+                  diseños en general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas vinculadas a la formación, educación,
+                  cuidado y asesoramiento a personas.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo6
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              APTITUDES ARTÍSTICAS, MANIPULATIVAS O DE MANEJO DE LAS COSAS
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  ARTES PLÁSTICAS: Profesiones relacionadas con la creatividad
+                  plástica, literaria, que dominan la expresión de ideas o
+                  emociones a través de formas, colores, materiales y diseños en
+                  general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  MUSICAL: Profesiones que se ocupan de la creación,
+                  interpretación, transmisión o valoración de la música.
+                </p>
+              </li>
+              <li>
+                <p>
+                  CIENCIAS SOCIALES/HUMANIDADES: Profesiones que se desarrollan
+                  a través de las relaciones humanas y estudian al ser humano
+                  como ente social, dando gran énfasis a aspectos como el
+                  comportamiento, interacciones humanas y la cultura.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas que implican transmisión de saberes, tanto
+                  intelectuales, como artísticos, técnicos, etc. y que
+                  demuestran habilidad manual y de manipulación de objetos,
+                  sensibilidad, gusto estético, creatividad, capacidad de
+                  diseño, composición, interpretación, etc.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo7
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              APTITUDES LINGUÍSTICA, DE LECTURA Y ESCRITURA
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  CIENCIAS SOCIALES, HUMANIDADES: Profesiones que se desarrollan
+                  a través de las relaciones humanas y estudian al ser humano
+                  como ente social, dando gran énfasis a aspectos como el
+                  comportamiento, interacciones humanas y la cultura. Los
+                  profesionales contribuyen al desarrollo a través del buen
+                  manejo del lenguaje, las habilidades comunicativas, actitud
+                  analítica-crítica, la investigación, la docencia, etc.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ARTES PLÁSTICAS: Profesiones relacionadas con la creatividad
+                  plástica, literaria, que dominan la expresión de ideas o
+                  emociones a través de formas, colores, materiales y diseños en
+                  general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  MUSICAL: Profesiones que se ocupan de la creación,
+                  interpretación, transmisión o valoración de la música.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas vinculadas a las artes, escritura, diseño,
+                  edición, medios de comunicación, generación y difusión de
+                  contenidos, disciplinas musicales, etc.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo8
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              APTITUDES PARA PLANIFICAR, ORGANIZAR, DIRIGIR
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  CIENCIAS SOCIALES, HUMANIDADES: Profesiones que se desarrollan
+                  a través de las relaciones humanas y estudian al ser humano
+                  como ente social, dando gran énfasis a aspectos como el
+                  comportamiento, interacciones humanas y la cultura. El
+                  pensamiento estratégico, las habilidades comunicativas, la
+                  lógica y razonamiento, capacidad de gestión, la planificación
+                  y capacidad de gestión contribuyen al desarrollo.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ECONOMÍA: Profesiones vinculadas al ámbito de la Economía, que
+                  hace referencia a la administración en general, mundo
+                  empresarial y económico. Analizan las relaciones productivas,
+                  comerciales, de distribución y de consumo de bienes y
+                  servicios. Los profesionales en este campo tienen visión
+                  estratégica, liderazgo, facilidad para guiar, coordinar
+                  equipos y tareas, tomar decisiones, capacidad de emprender,
+                  abstracción, capacidad de persuasión.
+                </p>
+              </li>
+              <li>
+                <p>
+                  SEGURIDAD: Profesiones vinculadas al orden y la seguridad en
+                  la convivencia humana y ciudadana para garantizar el ejercicio
+                  de derechos de las personas. Los profesionales demuestran
+                  capacidad de liderazgo, empatía, inteligencia social y
+                  crítica.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas que demanden facilidad para ordenar, guiar y
+                  disponer un determinado emprendimiento económico o social.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo9
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              APTITUDES PARA ENSEÑAR, EDUCAR, AYUDAR
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  CIENCIAS SOCIALES/HUMANIDADES: Profesiones que se desarrollan
+                  a través de las relaciones humanas o de su estudio. Destacan
+                  en el profesional la capacidad para comunicar o transmitir
+                  conocimientos especiales o generales sobre un tema, actitud
+                  prosocial, conciencia social, etc.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Profesiones vinculadas a la enseñanza, orientación y
+                  entrenamiento de personas. Hace referencia a la transmisión de
+                  saberes, tanto intelectuales, como artísticos, técnicos,
+                  deportivos, etc.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            *ngIf="
+              usuario.resumen.test3.grupos_total_test3.grupo10
+                .validadoPorConsultor
+            "
+            class="text-justify"
+          >
+            <h5 class="bg-info py-2 text-light text-center">
+              APTITUDES PARA EL ARTE, LA CREATIVIDAD Y LA INNOVACIÓN
+            </h5>
+            <h6>
+              <strong
+                >OPCIONES DE ESTUDIO Y TRABAJO QUE CONTEMPLA TU PERFIL:</strong
+              >
+            </h6>
+            <ul class="vinetas_grupos">
+              <li>
+                <p>
+                  CIENCIAS SOCIALES/HUMANIDADES: Profesiones que se desarrollan
+                  a través de las relaciones humanas y estudian al ser humano
+                  como ente social, dando gran énfasis a aspectos como el
+                  comportamiento, interacciones humanas y la cultura. La
+                  sensibilidad social, actitud prosocial, empatía, inteligencia
+                  social y crítica contribuirán al desarrollo.
+                </p>
+              </li>
+              <li>
+                <p>
+                  ARTES PLÁSTICAS: Profesiones relacionadas con la creatividad
+                  plástica, literaria, que dominan la expresión de ideas o
+                  emociones a través de formas, colores, materiales, y diseño en
+                  general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  MUSICAL: Profesiones que se ocupan de la creación,
+                  interpretación, transmisión o valoración de la música.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Carreras técnicas relacionadas con el diseño, diagramación,
+                  medios de comunicación, publicidad, generación de contenidos
+                  multimedia, etc.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <diV class="col-12">
+          <h4 class="bg-info py-2 text-light text-center">
+            <b>CARRERAS SUGERIDAS</b>
+          </h4>
+          <!-- <p class="text-justify">Las carreras <b>remarcadas en color</b>, se ofertan en la UPDS. Cliquea sobre las mismas y conocerás las mallas curriculares.</p> -->
+          <p class="text-justify">
+            Estas son las principales carreras técnicas y universitarias que
+            responden a tu perfil personal. De ese grupo, sólo las remarcadas en
+            color se ofertan en la UPDS, por lo tanto, si te interesan, cliquea
+            sobre las mismas y conocerás las mallas curriculares.
+          </p>
+        </diV>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 hidden-xs"></div>
+        <div class="col-sm-6 col-xs-12">
+          <div *ngFor="let c of sortBy('prioridad')" class="list-group">
+            <a
+              *ngIf="verificar(c.carrera); else nohay"
+              href="#"
+              class="list-group-item list-group-item-action list-group-item-primary"
+              role="button"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              (click)="activar(c.carrera)"
+              >{{ c.carrera }}</a
+            >
+            <ng-template #nohay>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action disabled"
+                >{{ c.carrera }}</a
+              >
+            </ng-template>
+          </div>
+        </div>
+        <div class="col-sm-3 hidden-xs"></div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6 d-flex justify-content-start">
+          <a
+            href="https://api.whatsapp.com/send?phone=59175122913&text=Hola%20necesito%20ayuda%20con%20los%20resultados%20de%20mi%20Test%20de%20Orientación%20Vocacional"
+            class="imgWP"
+            target="_blank"
+          >
+            <img
+              src="./assets/images/wp.png"
+              style="width: 40px"
+              class=""
+            />Asesoría del Test POAP</a
+          >
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-end">
+          <a
+            href="#"
+            class="imgWP"
+            role="button"
+            data-toggle="modal"
+            data-target="#tips"
+            >Consejos
+            <img src="./assets/images/tipsresultados.png" style="width: 40px"
+          /></a>
+        </div>
+      </div>
+      <!-- <div *ngFor="let c of carreras">
+            <div class="prioridad1" *ngIf="c.prioridad==1">{{c.carrera}}</div>
+            <div class="prioridad2" *ngIf="c.prioridad==2">{{c.carrera}}</div>
+            <div class="prioridad3" *ngIf="c.prioridad==3">{{c.carrera}}</div>
+        </div> -->
+    </div>
+  </div>
+</main>
+<!--Modal Salir-->
+<div
+  class="modal fade"
+  id="ModalSalir"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Esta seguro que desea salir del sitio?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="salir()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Instrucciones -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Malla Curricular</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div *ngIf="idx === 0">
+              <img src="./assets/images/carreras/0.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 1">
+              <img src="./assets/images/carreras/1.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 2">
+              <img src="./assets/images/carreras/2.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 3">
+              <img src="./assets/images/carreras/3.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 4">
+              <img src="./assets/images/carreras/4.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 5">
+              <img src="./assets/images/carreras/5.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 6">
+              <img src="./assets/images/carreras/6.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 7">
+              <img src="./assets/images/carreras/7.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 8">
+              <img src="./assets/images/carreras/8.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 9">
+              <img src="./assets/images/carreras/9.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 10">
+              <img src="./assets/images/carreras/10.jpg" style="width: 100%" />
+            </div>
+            <div *ngIf="idx === 11">
+              <img src="./assets/images/carreras/11.jpg" style="width: 100%" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal TIPS -->
+<div
+  class="modal fade"
+  id="tips"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-center">
+        <h5 class="modal-title" id="exampleModalLabel">CONSEJOS POAP</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="cont == 1" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >CONSEJOS PARA LA BÚSQUEDA DE OPCIONES ACADÉMICAS Y
+                    PROFESIONALES</label
+                  >
+                </div>
+                <div class="container animate__animated animate__bounce">
+                  <br />
+                  <p style="text-align: left">
+                    Inicia un proceso de búsqueda de información y análisis:
+                  </p>
+                  <ul
+                    class="vinetas_grupos text-justify"
+                    style="text-align: left"
+                  >
+                    <li>
+                      Revisa páginas web informativas de Institutos y
+                      Universidades que te ayuden a descubrir diferentes áreas
+                      de estudio y carreras.
+                    </li>
+                    <li>
+                      Descubre qué instituto o universidad ofrece la carrera de
+                      tu elección.
+                    </li>
+                    <li>
+                      Visita institutos o universidades. Dirígete a la Oficina
+                      de Informaciones o Atención al Cliente.
+                    </li>
+                    <li>
+                      Contáctate con ellos también a través de sus redes
+                      sociales.
+                    </li>
+                    <li>
+                      Identifica bien los requisitos de admisión y prepárate
+                      para ello.
+                    </li>
+                    <li>Averigua el costo total de los estudios.</li>
+                    <li>
+                      Consulta si existen descuentos (becas), planes de pago
+                      especial, convenios entre instituciones, facilidades que
+                      te ofrecen para estudiar y otros beneficios.
+                    </li>
+                    <li>
+                      Analiza tu situación personal y socioeconómica para
+                      decidir dónde y cómo estudiar.
+                    </li>
+                    <li>
+                      Analiza el apoyo familiar con el que cuentas para poder
+                      estudiar.
+                    </li>
+                    <li>
+                      Ante la duda, indecisión o desconocimiento consulta con un
+                      psicopedagogo o psicólogo en tu colegio, en institutos o
+                      universidades para recibir una orientación adecuada.
+                    </li>
+                  </ul>
+                  <p>
+                    <b
+                      >¡BUSCA MANERAS DE HACER REALIDAD TU SUEÑO DE ESTUDIO Y
+                      PROFESIONALIZACIÓN!</b
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cont == 2" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/tip1.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+              </div>
+              <div class="col-12 col-md-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >SI TIENES DIFICULTADES ACADÉMICAS</label
+                  >
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <ul class="vinetas_tips text-justify mr-2 py-2">
+                    <li>Toma clases de apoyo o nivelación.</li>
+                    <li>
+                      Busca tutoriales en internet (youtube/ páginas web).
+                    </li>
+                    <li>
+                      Pide ayuda a tus hermanos o familiares que tengan
+                      conocimiento respecto al tema.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cont == 3" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/tip2.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+              </div>
+              <div class="col-12 col-md-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >SI YA DECIDISTE LA CARRERA QUE QUIERES ESTUDIAR</label
+                  >
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <ul
+                    style="text-align: left"
+                    class="vinetas_tips text-justify mr-2 py-2"
+                  >
+                    <li>
+                      Investiga cuáles son las áreas de especialización de la
+                      carrera que te interesa, así tendrás una idea más acertada
+                      de la misma.
+                    </li>
+                    <li>
+                      Prepárate para los cursos preuniversitarios o exámenes de
+                      ingreso.
+                    </li>
+                    <li>
+                      Analiza el apoyo familiar que tienes para poder estudiar.
+                    </li>
+                  </ul>
+                  <p>
+                    ¡Recuerda que algunos centros académicos te permiten
+                    estudiar y trabajar!
+                  </p>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cont == 4" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/tip3.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+              </div>
+              <div class="col-12 col-md-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >SI ESTÁS INDECISO ENTRE VARIAS CARRERAS</label
+                  >
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <ul
+                    style="text-align: left"
+                    class="vinetas_tips text-justify mr-2 py-2"
+                  >
+                    <li>
+                      Analiza bien cuáles son tus principales intereses y sobre
+                      todo las aptitudes que tienes (¿para qué eres bueno?).
+                    </li>
+                    <li>
+                      ¡No te dejes influenciar fácilmente por tus amigos o
+                      familia, primero infórmate!.
+                    </li>
+                    <li>
+                      Entrevista a profesionales de las carreras que te
+                      interesan. ¡Resuelve tus dudas con ellos!.
+                    </li>
+                    <li>
+                      Analiza y haz un balance comparativo entre las carreras
+                      (lo bueno y lo malo).
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cont == 5" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/tip4.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+              </div>
+              <div class="col-12 col-md-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >SI AÚN NO SABES LO QUE QUIERES ESTUDIAR</label
+                  >
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <ul
+                    style="text-align: left"
+                    class="vinetas_tips text-justify mr-2 py-2"
+                  >
+                    <li>
+                      Analiza bien cuáles son tus principales intereses (intenta
+                      visualizar un futuro académico/ profesional).
+                    </li>
+                    <li>
+                      Evalúa las aptitudes que tienes (¿para qué eres bueno?).
+                    </li>
+                    <li>
+                      Conversa con amigos, familiares que te conocen y busca un
+                      consejo, pero no te dejes influenciar sin antes haberte
+                      informado sobre las carreras que te gustan.
+                    </li>
+                    <li>
+                      Entrevista a profesionales de las carreras que puedan
+                      llamarte la atención. ¡Resuelve tus dudas con ellos!.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cont == 6" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  src="./assets/images/tip5.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+              </div>
+              <div class="col-12 col-md-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >SI NO CUENTAS CON RECURSOS ECONÓMICOS</label
+                  >
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <ul
+                    style="text-align: left"
+                    class="vinetas_tips text-justify mr-2 py-2"
+                  >
+                    <li>
+                      Averigua qué beneficios o facilidades de pago existen en
+                      Institutos/ Universidades acordes a tus necesidades. Ej.
+                      Becas / estudios gratis a cambio de horas de trabajo
+                      mensual.
+                    </li>
+                    <li>
+                      Busca un trabajo que te genere ingresos básicos para poder
+                      estudiar.
+                    </li>
+                    <li>
+                      Averigua si la empresa/institución en la que tú o tus
+                      padres trabajan, tienen un convenio con la Universidad
+                      (podrás conseguir disminución en el pago y/o becas).
+                    </li>
+                    <li>
+                      Escoge el tipo de estudios más acorde a tu tiempo y
+                      disponibilidad, que te permita trabajar y estudiar.
+                    </li>
+                    <li>
+                      Puedes ir avanzando poco a poco en la carrera que elijas
+                      sin necesidad de abandonarla.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cont == 7" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-5 d-flex BloqueIsquierdo posicion">
+                <img
+                  style="height: 100%"
+                  src="./assets/images/tip6.jpg"
+                  alt="..."
+                  class="animate__animated animate__fadeInUp Sombra bordeimg imgPos"
+                />
+              </div>
+              <div class="col-12 col-md-7 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >SI QUIERES ESTUDIAR EN OTRA CIUDAD O PAÍS</label
+                  >
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <ul
+                    style="text-align: left"
+                    class="vinetas_tips text-justify mr-2 py-2"
+                  >
+                    <li>
+                      Averigua el costo de vida (alquileres, alimentación,
+                      transporte, matriculación, mensualidad, etc.).
+                    </li>
+                    <li>
+                      Si tienes un familiar que podría alojarte, consulta si es
+                      posible de manera gratuita o podrías pagarle un monto
+                      menor que en el mercado.
+                    </li>
+                    <li>
+                      Averigua si la carrera que inicies en tu ciudad puedes
+                      convalidarla en otra universidad o instituto de esa ciudad
+                      o país.
+                    </li>
+                    <li>
+                      Aprende el idioma y adquiere el nivel necesario exigido
+                      para seguir estudios superiores.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cont == 8" class="animate__animated animate__fadeIn">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-12 BloqueDerecho">
+                <div
+                  class="container bg-info rounded animate__animated animate__bounce Sombra"
+                >
+                  <label
+                    class="text-light font-weight-bold"
+                    style="font-size: larger"
+                    >CONSEJOS PARA EL DESARROLLO DE APTITUDES</label
+                  >
+                </div>
+                <div
+                  class="mt-3 animate__animated animate__bounce animate__fadeInBottomLeft Sombra"
+                >
+                  <ul
+                    style="text-align: left"
+                    class="vinetas_tips text-justify mr-2 py-2"
+                  >
+                    <li>
+                      Complementa tus estudios con algún idioma para ser un
+                      profesional más competitivo.
+                    </li>
+                    <li>
+                      Toma cursos complementarios relacionados con tu carrera y
+                      otros temas de formación general (Alcaldías,
+                      Gobernaciones, Institutos, Empresas, Universidades, ONG´s
+                      socializan continuamente por las redes sociales).
+                    </li>
+                    <li>
+                      Aprende paquetes computacionales y aplicaciones móviles
+                      que te ayudarán en tu desempeño académico y profesional.
+                    </li>
+                    <li>
+                      Realiza acciones de voluntariado que te ayuden a
+                      desarrollarte de manera más integral, y adquirirás nuevos
+                      aprendizajes. Existen diversas opciones relacionadas a la
+                      Protección del Medio Ambiente, protección de animales,
+                      Escultismo, grupos de iglesia, apoyo escolar a niños/as,
+                      terapia ocupacional con adultos mayores, Clubes de
+                      Deporte, Ciencia, Cultura, Arte, Música, etc.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- <div class="col-12">
+                <div class="container bg-info rounded animate__animated animate__bounce Sombra" >
+                  <label class="text-light font-weight-bold" style="font-size: larger;">CONSEJOS PARA EL DESARROLLO DE APTITUDES </label>
+                </div>
+                <div class="container animate__animated animate__bounce">
+                  <br>                  
+                  <ul style="text-align: left;" class="vinetas_tips bg-danger text-justify mr-2 py-2">
+                    <li>Complementa tus estudios con algún idioma para ser un profesional más competitivo.</li>
+                    <li>Toma cursos complementarios relacionados con tu carrera y otros temas de formación general (Alcaldías, Gobernaciones, Institutos, Empresas, Universidades, ONG´s socializan continuamente por las redes sociales).</li>
+                    <li>Aprende paquetes computacionales y aplicaciones móviles que te ayudarán en tu desempeño académico y profesional.</li>                                        
+                    <li>Realiza acciones de voluntariado que te ayuden a desarrollarte de manera más integral, y adquirirás nuevos aprendizajes. Existen diversas opciones relacionadas a la Protección del Medio Ambiente, protección de animales, Escultismo, grupos de iglesia, apoyo escolar a niños/as, terapia ocupacional con adultos mayores, Clubes de Deporte, Ciencia, Cultura, Arte, Música, etc.</li>
+                  </ul>
+                  
+                </div>
+              </div>               -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          *ngIf="cont > 0"
+          (click)="tips_back()"
+        >
+          Atrás
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          *ngIf="cont < 8"
+          (click)="tips_next()"
+        >
+          Siguiente
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          *ngIf="cont == 8"
+          data-dismiss="modal"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

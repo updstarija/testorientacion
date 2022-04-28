@@ -1,0 +1,139 @@
+.prioridad1 {
+    background-color: rgb(72, 245, 95);
+    color: rgb(255, 255, 255);
+    margin: 20px auto;
+    width: 350px;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.prioridad2 {
+    background-color: rgb(250, 192, 84);
+    color: rgb(255, 255, 255);
+    margin: 20px auto;
+    width: 350px;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.prioridad3 {
+    background-color: rgb(243, 110, 57);
+    color: rgb(255, 255, 255);
+    margin: 20px auto;
+    width: 350px;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.imgLogo1{
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .imgLogo2{
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .text-center{
+      text-align: left;
+  }
+  .bordeimg {
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 15px;    
+}
+.Sombra{
+    box-shadow: 0px 0px 4px 2px #8D8D8D;
+}
+
+
+@media screen and (max-width: 1920px) {
+    .imgPos{
+        /* position: absolute; 
+        z-index: 1;  */
+        width: 100%;
+      }
+    .imgWP{
+        margin-top: 40px;
+    }
+    .BloqueIsquierdo{
+        padding: 2vw;
+        padding-right: 1vw;
+    }
+    .BloqueDerecho{
+        padding: 2vw;
+        padding-left: 1vw;
+    }
+    
+}
+@media screen and (max-width: 1500px) {
+    .imgPos{
+       /*  position: absolute; 
+        z-index: 1;  */
+        width: 100%;
+      }
+      .imgWP{
+        margin-top: 40px;
+    }
+    .BloqueIsquierdo{
+        padding: 2vw;
+        padding-right: 1vw;
+    }
+    .BloqueDerecho{
+        padding: 2vw;
+        padding-left: 1vw;
+    }
+}
+@media screen and (max-width: 600px) {
+    .imgPos{
+       /*  position: static; 
+        z-index: 1;  */
+        width: 91%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      .imgWP{
+        margin-top: 10px;
+    }
+    .BloqueIsquierdo{
+        padding-right: 0vw;
+        padding-left: 0vw;
+        padding-bottom: 4vw;
+        padding-top: 0vw;
+    }
+    .BloqueDerecho{
+        padding-right: 0vw;
+        padding-left: 0vw;
+        padding-bottom: 0vw;
+        padding-top: 0vw;
+    }  
+    .imgLogo1{
+        width: 6rem;
+        margin-top: 3rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .imgLogo2{
+        width: 8rem;
+        margin-top: 3rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .title_programa{
+        font-size: 0.8rem;
+        margin-top: 1rem;
+    }
+    .vinetas_grupos{
+        padding-left: 0.1rem;
+    }
+    .vinetas_tips{
+        padding-left: 2rem;
+    }
+}
